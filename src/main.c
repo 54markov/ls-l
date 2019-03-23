@@ -48,21 +48,33 @@ int main(int argc, char const *argv[])
         struct stat stat_buf = { 0 };
         const char *full_path = util_path_file_concat(path, dir_entry->d_name);
         if (!full_path)
+        {
+            closedir(dir);
             return ERR_FAIL;
+        }
 
         if (0 != stat(full_path, &stat_buf))
+        {
+            closedir(dir);
             return ERR_FAIL;
+        }
         
         if (DT_LNK == dir_entry->d_type)
         {
             if (0 != lstat(full_path, &stat_buf))
+            {
+                closedir(dir);
                 return ERR_FAIL;
+            }
         }
 
         // TODO: There is no column indenting
         // TODO: There is no alphabetic sorting
         if (ERR_NONE != file_info_print(dir_entry, &stat_buf, full_path))
+        {
+            closedir(dir);
             return ERR_FAIL;
+        }
 
         total_bytes += (uint64_t)stat_buf.st_size;
     }
