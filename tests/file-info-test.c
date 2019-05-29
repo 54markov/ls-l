@@ -7,7 +7,6 @@
 #include <error.h>
 #include <file-info.h>
 
-
 static void file_info_null_test_success(void **unused)
 {
     assert_int_not_equal(ERR_NONE, file_info_print(NULL, NULL, NULL));

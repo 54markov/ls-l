@@ -11,7 +11,6 @@
 #include <rcodes.h>
 #include <file-info.h>
 
-
 int main(int argc, char const *argv[])
 {
     char path[PATH_MAX] = { 0 };

@@ -8,7 +8,6 @@
 #include <error.h>
 #include <util.h>
 
-
 static void path_file_concat_null_test_success(void **unused)
 {
     const char *path = "path";

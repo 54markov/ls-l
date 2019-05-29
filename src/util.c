@@ -5,21 +5,21 @@
 
 #include <util.h>
 
-#define RED      "\033[0;31m"
-#define GRN      "\033[0;32m"
-#define YEL      "\033[33m"
-#define BLU      "\033[34m"
-#define MAG      "\033[35m"
-#define CYN      "\033[36m"
-#define WHT      "\033[37m"
-#define RST      "\033[0m"
+#define RED "\033[0;31m"
+#define GRN "\033[0;32m"
+#define YEL "\033[33m"
+#define BLU "\033[34m"
+#define MAG "\033[35m"
+#define CYN "\033[36m"
+#define WHT "\033[37m"
+#define RST "\033[0m"
 
 #define STR_SIZE sizeof("rwxrwxrwx")
 
-
-/**
- * Concatenates @path and @file to full path string.
+/*
+ * util_path_file_concat - Concatenates @path and @file to full path string.
  * Returns NULL if @path or @file isn't valid or resulting string > PATH_MAX.
+ *
  * @path : File path.
  * @file : File name.
  */
@@ -42,8 +42,9 @@ const char *util_path_file_concat(const char *path, const char *name)
     return full_path;
 }
 
-/**
- * Returns ls -l style string for file permissions mask.
+/*
+ * util_file_perm_str - Returns ls -l style string for file permissions mask.
+ *
  * @perm  : File permissions mask.
  * @flags : Include set-user-ID, set-group-ID, and sticky
  *          bit information.
@@ -75,8 +76,10 @@ const char *util_file_perm_str(const mode_t perm, int flags)
     return str;
 }
 
-/**
- * Returns ls -l style string for file type or NULL if @type isn't valid.
+/*
+ * util_file_perm_str - Returns ls -l style string for file type or NULL
+ * if @type isn't valid.
+ *
  * @type : Directory type.
  */
 const char *util_file_type_str(const unsigned char type)
@@ -95,9 +98,10 @@ const char *util_file_type_str(const unsigned char type)
     return NULL;
 }
 
-/**
- * Returns last modifed string for file in format: 'months day hour:min'
- * or NULL if @time isn't valid or can't convert time.
+/*
+ * util_file_last_mod_time_str - Returns last modifed string for file in format:
+ * 'months day hour:min' or NULL if @time isn't valid or can't convert time.
+ *
  * @time : File last modified time.
  */
 const char *util_file_last_mod_time_str(const time_t *time)
@@ -112,17 +116,17 @@ const char *util_file_last_mod_time_str(const time_t *time)
     return buf;
 }
 
-/**
- * Returns colored file name (for symbolic links resolves references).
- * or NULL if @path @name isn't valid.
+/*
+ * util_file_name_fstr - Returns colored file name (for symbolic links resolves
+ * references) or NULL if @path @name isn't valid.
+ *
  * @path : Path to file.
  * @name : File name.
  * @type : File type.
  */
-const char *util_file_name_fstr(
-    const char *path,
-    const char *name,
-    const unsigned char type)
+const char *util_file_name_fstr(const char *path,
+                                const char *name,
+                                const unsigned char type)
 {
     if (!path)
         return NULL;

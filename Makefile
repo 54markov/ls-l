@@ -7,7 +7,7 @@ TESTS       := util-test file-info-test
 
 CC          := gcc
 CFLAGS      := -g -Wall -Werror -std=c11
-IFLAGS      := -I $(SRC_DIR)/include
+IFLAGS      := -I ./include
 
 
 all: $(OBJS) $(TARGET)
