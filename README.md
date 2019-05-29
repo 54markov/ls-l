@@ -1,8 +1,8 @@
-# This is a simple ls -l style utility
+# Linux shell style ls -l utility
 
-* Build the util: make
-* Build the util tests: make test (required cmocka)
+* build: make
+* Build tests: make test (required cmocka)
 
-* Run the util: build/simple-ls <path>
-* Also you can run tests: build/test/<tests>
+* run: build/simple-ls <path>
+* run tests: build/test/<tests>
 
