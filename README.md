@@ -1,8 +1,7 @@
 # Linux shell style ls -l utility
 
-* build: make
-* Build tests: make test (required cmocka)
+* To build: make
+* To build tests: make test (required cmocka)
 
-* run: build/simple-ls <path>
-* run tests: build/test/<tests>
-
+* To run: build/simple-ls <path>
+* To run tests: build/test/<tests>
